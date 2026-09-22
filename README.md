@@ -1,4 +1,4 @@
-# Agnus Barlow — barlowa124
+# Angus Barlow — barlowa124
 
 Biological data → predictive ML → scientific agents → independently checkable execution → regulated biopharma software.
 
