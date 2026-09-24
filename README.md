@@ -4,6 +4,8 @@ Biological data → predictive ML → scientific agents → independently checka
 
 I build life-science software where the evidence is inspectable: frozen splits, deterministic computation, machine-checked claims, replayable runs, and explicit abstention when the data does not support a result.
 
+Currently focused on the intersection of **trustworthy AI and human-relevant preclinical models** — New Approach Methodologies (NAMs), computational toxicology, and ML tooling for drug discovery that reduces reliance on animal testing.
+
 ## Projects
 
 | Repository | What it is | What to look at |
