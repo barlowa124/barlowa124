@@ -39,4 +39,4 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 
 - Verified computation is not verified science: reproducing a calculation says nothing about whether the model or the hypothesis is right.
 - Research and education use only. Nothing here is validated for GMP, clinical, or manufacturing decisions.
-- Failures are kept, not deleted. Rejected runs and abstentions are part of the evidence record.
+- Rejected runs, abstentions, and failures are part of the evidence record.
