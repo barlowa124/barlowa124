@@ -9,7 +9,7 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 ## Where to start
 
 - **Uncertainty and calibration**: [comp-tox-pipeline](https://github.com/barlowa124/comp-tox-pipeline) (scaffold-split conformal + applicability domain on molecules), [protein-stability-uncertainty](https://github.com/barlowa124/protein-stability-uncertainty) (homology-split conformal, Mondrian per-domain coverage on proteins).
-- **Debugging model failures**: [llm-posttraining](https://github.com/barlowa124/llm-posttraining) (DPO collapse → zero-gradient diagnosis → GRPO repair, raw generations committed), [protein-diffusion](https://github.com/barlowa124/protein-diffusion) (memorization forensics → fitness-conditioned fix).
+- **Debugging model failures**: [llm-posttraining](https://github.com/barlowa124/llm-posttraining) (DPO collapse → zero-gradient diagnosis → GRPO repair, raw generations committed), [protein-diffusion](https://github.com/barlowa124/protein-diffusion) (memorization forensics → fitness-conditioned fix; [weights on HF](https://huggingface.co/barlowa/protein-ddpm-landscapes)).
 - **Experiment design**: [active-learning-loop](https://github.com/barlowa124/active-learning-loop) (GP-UCB vs random, two real measured landscapes, encoder ablation).
 - **Operationalization**: [oncology-coscientist](https://github.com/barlowa124/oncology-coscientist) (deterministic verifier + human gate), [dockops](https://github.com/barlowa124/dockops), [bioprocess-decision-runtime](https://github.com/barlowa124/bioprocess-decision-runtime).
 
