@@ -10,7 +10,7 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 
 | Repository | What it is |
 |---|---|
-| [cytof-qc](https://github.com/barlowa124/cytof-qc) | Mass-cytometry benchmark: FCS parsing, channel/event QC, Leiden clustering on 167k events scored against the 24 manual gates of Levine_13dim (ARI 0.867). Merged and missed populations reported per gate. |
+| [cytof-qc](https://github.com/barlowa124/cytof-qc) | Mass-cytometry benchmark: FCS parsing, channel/event QC, Leiden clustering on all 167k events of Levine_13dim with agreement scored on the 81.7k labeled subset (ARI 0.867). Merged and missed populations reported per gate. |
 | [labStackDev](https://github.com/barlowa124/labStackDev) | RNA-seq quantification pipelines (Salmon, STAR+Salmon hybrid, pyDESeq2, METAFlux) validated at r = 0.984 against a CLC baseline, plus a SQLite LIMS with a hash-chained audit log. |
 | [organoid-qc](https://github.com/barlowa124/organoid-qc) | Organoid fidelity scoring vs CELLxGENE reference centroids, reported per cluster with unmapped fractions, plus an Opentrons Flex dosing protocol validated by the official Protocol Engine. |
 | [cultivated-meat-multiomic](https://github.com/barlowa124/cultivated-meat-multiomic) | RNA + metabolic-flux clustering, 30-gene panel selection, conformal prediction, and drift monitoring on public data with cross-species checks. |
@@ -47,7 +47,17 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 
 - **scverse/scanpy** (open): [PR #4383](https://github.com/scverse/scanpy/pull/4383) keeps a user-supplied `hue` in `sc.pl.violin` instead of dropping it or erroring. [PR #4385](https://github.com/scverse/scanpy/pull/4385) fixes multi-column `groupby` crashing on non-string observations across the BasePlot family.
 - **OpenADMET/openadmet-models** (open): PRs [#607](https://github.com/OpenADMET/openadmet-models/pull/607), [#608](https://github.com/OpenADMET/openadmet-models/pull/608), [#609](https://github.com/OpenADMET/openadmet-models/pull/609), [#610](https://github.com/OpenADMET/openadmet-models/pull/610). The last exposes `n_jobs` on the splito-based splitters.
+- **chaidiscovery/chai-lab** (open): [PR #431](https://github.com/chaidiscovery/chai-lab/pull/431) reports pTM as the aggregate score for single-chain inputs, where the ipTM-based headline understated confidence.
 - [TDC fork](https://github.com/barlowa124/TDC): tested fix for silent dataset-name substitution plus an AnnData getter/split API. [ProteinMPNN](https://github.com/barlowa124/ProteinMPNN): effective-seed visibility fix filed as [issue #154](https://github.com/dauparas/ProteinMPNN/issues/154).
+
+## How the pieces connect
+
+The repos are standalone, but a few components are shared deliberately so results cross-check each other:
+
+- **ESM-2** is the protein encoder in three places with honestly split outcomes: it drives rescoring in protein-design-ops and the target encoder in dti-fusion, and in active-learning-loop it loses to one-hot on GB1, kept as a committed negative result.
+- **The GB1 measured landscape** is the fitness oracle in both protein-diffusion and active-learning-loop, so the generation-steering and acquisition-enrichment numbers are comparable across repos.
+- **AnnData/scanpy** underlies cytof-qc and organoid-qc. The upstream scanpy PRs came from plotting bugs hit in that workflow, not from drive-by contributions.
+- **Claims bound to computation**: oncology-coscientist's verifier, the bioprocess runtime's replay certificates, protein-design-ops' pinned-seed provenance, and comp-tox's applicability-domain conditioning are the same discipline applied at different layers.
 
 ## Scope statements I hold to
 
