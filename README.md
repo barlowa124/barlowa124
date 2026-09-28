@@ -2,14 +2,14 @@
 
 Biological data → predictive ML → scientific agents → independently checkable execution → regulated biopharma software.
 
-I build life-science software where the evidence is inspectable: frozen splits, deterministic computation, machine-checked claims, replayable runs, and explicit abstention when the data does not support a result.
+I build life-science software where the evidence is inspectable: frozen splits, deterministic computation, machine-checked claims, replayable runs and explicit abstention when the data does not support a result.
 
 Currently focused on **trustworthy AI and human-relevant preclinical models**: New Approach Methodologies (NAMs), computational toxicology, and ML tooling for drug discovery that reduces reliance on animal testing.
 
 ## Where to start
 
 - **Uncertainty and calibration**: [comp-tox-pipeline](https://github.com/barlowa124/comp-tox-pipeline) (scaffold-split conformal + applicability domain on molecules), [protein-stability-uncertainty](https://github.com/barlowa124/protein-stability-uncertainty) (homology-split conformal, Mondrian per-domain coverage on proteins).
-- **Debugging model failures**: [llm-posttraining](https://github.com/barlowa124/llm-posttraining) (DPO collapse → zero-gradient diagnosis → GRPO repair, raw generations committed), [protein-diffusion](https://github.com/barlowa124/protein-diffusion) (memorization forensics → fitness-conditioned fix; [weights on HF](https://huggingface.co/barlowa/protein-ddpm-landscapes)).
+- **Debugging model failures**: [llm-posttraining](https://github.com/barlowa124/llm-posttraining) (DPO collapse → zero-gradient diagnosis → GRPO repair, raw generations committed), [protein-diffusion](https://github.com/barlowa124/protein-diffusion) (memorization forensics → fitness-conditioned fix, [weights on HF](https://huggingface.co/barlowa/protein-ddpm-landscapes)).
 - **Experiment design**: [active-learning-loop](https://github.com/barlowa124/active-learning-loop) (GP-UCB vs random, two real measured landscapes, encoder ablation).
 - **Operationalization**: [oncology-coscientist](https://github.com/barlowa124/oncology-coscientist) (deterministic verifier + human gate), [dockops](https://github.com/barlowa124/dockops), [bioprocess-decision-runtime](https://github.com/barlowa124/bioprocess-decision-runtime).
 
@@ -39,4 +39,4 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 
 - Verified computation is not verified science: reproducing a calculation says nothing about whether the model or the hypothesis is right.
 - Research and education use only. Nothing here is validated for GMP, clinical, or manufacturing decisions.
-- Rejected runs, abstentions, and failures are part of the evidence record.
+- Rejected runs, abstentions and failures are part of the evidence record.
