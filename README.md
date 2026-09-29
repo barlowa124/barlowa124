@@ -33,6 +33,7 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 | [llm-posttraining](https://github.com/barlowa124/llm-posttraining) | SFT + hand-rolled DPO + GRPO on SmolLM2-135M for abstention vs fabrication. DPO collapses deployed behavior at 100% train accuracy; shaped GRPO repairs it. Checkpoints published, including the collapsed one. |
 | [bioprocess-decision-runtime](https://github.com/barlowa124/bioprocess-decision-runtime) | Bit-exact re-execution spec of a fixed Gemma 3 270M checkpoint with predeclared held-outs, plus a preserved failure where token agreement hid 49 differing logits. |
 | [qms-ai-system-resume](https://github.com/barlowa124/qms-ai-system-resume) | Fail-closed deployment assessment engine and hardened architecture for AI in regulated quality systems. |
+| [agent-trajectory-audit](https://github.com/barlowa124/agent-trajectory-audit) | Oversight applied to my own coding-agent sessions: normalizes transcripts to an event stream and flags where actions diverge from stated plans (unbacked test/deploy claims, dropped plan items, out-of-scope writes). Committed example audits a real session of mine. |
 
 ## Lab software and pipelines
 
