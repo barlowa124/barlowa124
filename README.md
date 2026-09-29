@@ -6,26 +6,28 @@ I build life-science software where the evidence is inspectable: frozen splits, 
 
 Currently focused on **trustworthy AI and human-relevant preclinical models**: New Approach Methodologies (NAMs), computational toxicology, and ML tooling for drug discovery that reduces reliance on animal testing.
 
-## Bioinformatics and assay data
+Related projects are grouped into monorepos — each subdirectory is a self-contained package with its own tests, config, and full commit history. The original repos are archived with pointers, so old links still resolve.
+
+## Bioinformatics and assay data — [bio-qc](https://github.com/barlowa124/bio-qc) + [lab-informatics](https://github.com/barlowa124/lab-informatics)
 
 | Repository | What it is |
 |---|---|
-| [cytof-qc](https://github.com/barlowa124/cytof-qc) | Mass-cytometry benchmark: FCS parsing, channel/event QC, Leiden clustering on all 167k events of Levine_13dim with agreement scored on the 81.7k labeled subset (ARI 0.867). Merged and missed populations reported per gate. |
-| [labStackDev](https://github.com/barlowa124/labStackDev) | RNA-seq quantification pipelines (Salmon, STAR+Salmon hybrid, pyDESeq2, METAFlux) validated at r = 0.984 against a CLC baseline, plus a SQLite LIMS with a hash-chained audit log. |
-| [organoid-qc](https://github.com/barlowa124/organoid-qc) | Organoid fidelity scoring vs CELLxGENE reference centroids, reported per cluster with unmapped fractions, plus an Opentrons Flex dosing protocol validated by the official Protocol Engine. |
+| [cytof-qc](https://github.com/barlowa124/bio-qc/tree/main/cytof_qc) | Mass-cytometry benchmark: FCS parsing, channel/event QC, Leiden clustering on all 167k events of Levine_13dim with agreement scored on the 81.7k labeled subset (ARI 0.867). Merged and missed populations reported per gate. |
+| [labStackDev](https://github.com/barlowa124/lab-informatics/tree/main/labStackDev) | RNA-seq quantification pipelines (Salmon, STAR+Salmon hybrid, pyDESeq2, METAFlux) validated at r = 0.984 against a CLC baseline, plus a SQLite LIMS with a hash-chained audit log. |
+| [organoid-qc](https://github.com/barlowa124/bio-qc/tree/main/organoid_qc) | Organoid fidelity scoring vs CELLxGENE reference centroids, reported per cluster with unmapped fractions, plus an Opentrons Flex dosing protocol validated by the official Protocol Engine. |
 | [cultivated-meat-multiomic](https://github.com/barlowa124/cultivated-meat-multiomic) | RNA + metabolic-flux clustering, 30-gene panel selection, conformal prediction, and drift monitoring on public data with cross-species checks. |
 
-## Protein engineering and ML
+## Protein engineering and ML — [protein-ml](https://github.com/barlowa124/protein-ml)
 
 | Repository | What it is |
 |---|---|
-| [protein-diffusion](https://github.com/barlowa124/protein-diffusion) | Conditional DDPM over the GB1 fitness landscape scored against the measured oracle. The v1 model memorized (46% copied rows); v2 fitness conditioning steers measurably (80% fit vs 4% random). DDP, FastAPI service, Flax/JAX port matching torch to 3e-6. [Weights on HF](https://huggingface.co/barlowa/protein-ddpm-landscapes). |
-| [active-learning-loop](https://github.com/barlowa124/active-learning-loop) | GP-UCB acquisition vs a 20-seed random baseline on two measured landscapes (GB1, AAV2). ~79x top-100 enrichment on GB1; AAV2 holds ~8x with overlapping AUBC bands, reported as a partial replication. ESM-2 embeddings lose to one-hot, committed as a negative finding. |
-| [protein-stability-uncertainty](https://github.com/barlowa124/protein-stability-uncertainty) | Sequence to melting-point regression on the Meltome atlas (27,951 proteins) with a homology-separated split. Marginal conformal coverage (0.90) hides a 0.96 → 0.85 gradient across distance; Mondrian calibration recovers flat coverage. |
-| [protein-design-ops](https://github.com/barlowa124/protein-design-ops) | ProteinMPNN generation + ESM-2 rescoring + ESMFold pLDDT screen with pinned-seed provenance. The reproducibility caveat caught upstream `--seed 0` silently randomizing. |
-| [dti-fusion](https://github.com/barlowa124/dti-fusion) | Drug-target interaction on DAVIS (fingerprints + ESM-2), modality-ablated on held-out proteins. Fusion wins ranking/MSE; drug-only edges MAE. |
+| [protein-diffusion](https://github.com/barlowa124/protein-ml/tree/main/protein_diffusion) | Conditional DDPM over the GB1 fitness landscape scored against the measured oracle. The v1 model memorized (46% copied rows); v2 fitness conditioning steers measurably (80% fit vs 4% random). DDP, FastAPI service, Flax/JAX port matching torch to 3e-6. [Weights on HF](https://huggingface.co/barlowa/protein-ddpm-landscapes). |
+| [active-learning-loop](https://github.com/barlowa124/protein-ml/tree/main/active_learning_loop) | GP-UCB acquisition vs a 20-seed random baseline on two measured landscapes (GB1, AAV2). ~79x top-100 enrichment on GB1; AAV2 holds ~8x with overlapping AUBC bands, reported as a partial replication. ESM-2 embeddings lose to one-hot, committed as a negative finding. |
+| [protein-stability-uncertainty](https://github.com/barlowa124/protein-ml/tree/main/protein_stability_uncertainty) | Sequence to melting-point regression on the Meltome atlas (27,951 proteins) with a homology-separated split. Marginal conformal coverage (0.90) hides a 0.96 → 0.85 gradient across distance; Mondrian calibration recovers flat coverage. |
+| [protein-design-ops](https://github.com/barlowa124/protein-ml/tree/main/protein_design_ops) | ProteinMPNN generation + ESM-2 rescoring + ESMFold pLDDT screen with pinned-seed provenance. The reproducibility caveat caught upstream `--seed 0` silently randomizing. |
+| [dti-fusion](https://github.com/barlowa124/mol-ml/tree/main/dti_fusion) | Drug-target interaction on DAVIS (fingerprints + ESM-2), modality-ablated on held-out proteins. Fusion wins ranking/MSE; drug-only edges MAE. |
 
-## Trustworthy ML and scientific agents
+## Trustworthy ML and scientific agents — [trust-tools](https://github.com/barlowa124/trust-tools)
 
 | Repository | What it is |
 |---|---|
@@ -33,16 +35,16 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 | [llm-posttraining](https://github.com/barlowa124/llm-posttraining) | SFT + hand-rolled DPO + GRPO on SmolLM2-135M for abstention vs fabrication. DPO collapses deployed behavior at 100% train accuracy; shaped GRPO repairs it. Checkpoints published, including the collapsed one. |
 | [bioprocess-decision-runtime](https://github.com/barlowa124/bioprocess-decision-runtime) | Bit-exact re-execution spec of a fixed Gemma 3 270M checkpoint with predeclared held-outs, plus a preserved failure where token agreement hid 49 differing logits. |
 | [qms-ai-system-resume](https://github.com/barlowa124/qms-ai-system-resume) | Fail-closed deployment assessment engine and hardened architecture for AI in regulated quality systems. |
-| [agent-trajectory-audit](https://github.com/barlowa124/agent-trajectory-audit) | Oversight applied to my own coding-agent sessions: normalizes transcripts to an event stream and flags where actions diverge from stated plans (unbacked test/deploy claims, dropped plan items, out-of-scope writes). Committed example audits a real session of mine. |
-| [inference-receipts](https://github.com/barlowa124/inference-receipts) | Hash-bound receipts for LLM calls (weights, input, settings, output, chain link) with live replay verification. Committed example replays two real SmolLM2-135M calls bit-exact and catches a tampered receipt. |
+| [agent-trajectory-audit](https://github.com/barlowa124/trust-tools/tree/main/agent_trajectory_audit) | Oversight applied to my own coding-agent sessions: normalizes transcripts to an event stream and flags where actions diverge from stated plans (unbacked test/deploy claims, dropped plan items, out-of-scope writes). Committed example audits a real session of mine. |
+| [inference-receipts](https://github.com/barlowa124/trust-tools/tree/main/inference_receipts) | Hash-bound receipts for LLM calls (weights, input, settings, output, chain link) with live replay verification. Committed example replays two real SmolLM2-135M calls bit-exact and catches a tampered receipt. |
 
-## Lab software and pipelines
+## Lab software and pipelines — [mol-ml](https://github.com/barlowa124/mol-ml) + [lab-informatics](https://github.com/barlowa124/lab-informatics)
 
 | Repository | What it is |
 |---|---|
-| [comp-tox-pipeline](https://github.com/barlowa124/comp-tox-pipeline) | Reproducible Tox21 evaluation: scaffold-split LR/RF/GIN with calibration, conformal coverage, and applicability-domain conditioning. The NR-ER applicability-domain inversion only surfaced because out-of-domain metrics were measured. |
-| [lab-instrument-gateway](https://github.com/barlowa124/lab-instrument-gateway) | SCPI-style instrument driver against an emulated bioreactor over TCP: timeouts, reconnects, error-register polling, typed readings to SQLite, FastAPI dashboard, fault injection for failure-path tests. |
-| [dockops](https://github.com/barlowa124/dockops) | Docking pipeline ops: DUD-E staging, Vina backend, AFDB-vs-PDB structure QC that correctly argues against docking the AF model for EGFR, per-run provenance manifests. |
+| [comp-tox-pipeline](https://github.com/barlowa124/mol-ml/tree/main/comp_tox_pipeline) | Reproducible Tox21 evaluation: scaffold-split LR/RF/GIN with calibration, conformal coverage, and applicability-domain conditioning. The NR-ER applicability-domain inversion only surfaced because out-of-domain metrics were measured. |
+| [lab-instrument-gateway](https://github.com/barlowa124/lab-informatics/tree/main/lab_instrument_gateway) | SCPI-style instrument driver against an emulated bioreactor over TCP: timeouts, reconnects, error-register polling, typed readings to SQLite, FastAPI dashboard, fault injection for failure-path tests. |
+| [dockops](https://github.com/barlowa124/mol-ml/tree/main/dockops) | Docking pipeline ops: DUD-E staging, Vina backend, AFDB-vs-PDB structure QC that correctly argues against docking the AF model for EGFR, per-run provenance manifests. |
 | [vector-db-mcp](https://github.com/barlowa124/vector-db-mcp) | Local vector DB over MCP (stdio) with flat/IVF/HNSW scans. Committed benchmark shows exact flat wins at this scale; two construction bugs were caught by recall measurement. |
 
 ## Upstream contributions
