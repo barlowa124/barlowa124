@@ -34,6 +34,7 @@ Currently focused on **trustworthy AI and human-relevant preclinical models**: N
 | [bioprocess-decision-runtime](https://github.com/barlowa124/bioprocess-decision-runtime) | Bit-exact re-execution spec of a fixed Gemma 3 270M checkpoint with predeclared held-outs, plus a preserved failure where token agreement hid 49 differing logits. |
 | [qms-ai-system-resume](https://github.com/barlowa124/qms-ai-system-resume) | Fail-closed deployment assessment engine and hardened architecture for AI in regulated quality systems. |
 | [agent-trajectory-audit](https://github.com/barlowa124/agent-trajectory-audit) | Oversight applied to my own coding-agent sessions: normalizes transcripts to an event stream and flags where actions diverge from stated plans (unbacked test/deploy claims, dropped plan items, out-of-scope writes). Committed example audits a real session of mine. |
+| [inference-receipts](https://github.com/barlowa124/inference-receipts) | Hash-bound receipts for LLM calls (weights, input, settings, output, chain link) with live replay verification. Committed example replays two real SmolLM2-135M calls bit-exact and catches a tampered receipt. |
 
 ## Lab software and pipelines
 
