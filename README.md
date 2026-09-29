@@ -58,11 +58,11 @@ The repos are standalone, but a few components are shared deliberately so result
 - **The GB1 measured landscape** is the fitness oracle in both protein-diffusion and active-learning-loop, so the generation-steering and acquisition-enrichment numbers are comparable across repos.
 - **AnnData/scanpy** underlies cytof-qc and organoid-qc. The upstream scanpy PRs came from plotting bugs hit in that workflow, not from drive-by contributions.
 - **Claims bound to computation**: oncology-coscientist's verifier, the bioprocess runtime's replay certificates, protein-design-ops' pinned-seed provenance, and comp-tox's applicability-domain conditioning are the same discipline applied at different layers.
-- **Shared conventions, vendored not depended on**: a common provenance schema (`docs/PROVENANCE.md`) is adopted by oncology-coscientist, bioprocess-decision-runtime, dockops, labStackDev, and comp-tox-pipeline. A canonical conformal helper with parity tests runs in comp-tox-pipeline, protein-stability-uncertainty, and cultivated-meat-multiomic. One content-addressed ESM-2 cache is vendored into protein-design-ops, dti-fusion, and active-learning-loop.
+- **Shared conventions, vendored not depended on**: a common provenance schema (`docs/PROVENANCE.md`) is adopted by oncology-coscientist, bioprocess-decision-runtime, dockops, labStackDev and comp-tox-pipeline. A canonical conformal helper with parity tests runs in comp-tox-pipeline, protein-stability-uncertainty and cultivated-meat-multiomic. One content-addressed ESM-2 cache is vendored into protein-design-ops, dti-fusion and active-learning-loop.
 - **Cross-repo flows**: lab-instrument-gateway captures feed bioprocess-decision-runtime's `capture-scenario` evaluator. job-watch's repost detection and oncology-coscientist's `embed` retrieval mode can both dispatch to vector-db-mcp's E5 embedder while keeping dependency-free defaults. qms-ai-system-resume's deployment instrument has a committed worked assessment of oncology-coscientist (verdict: BLOCKING_FINDINGS, as designed for a research tool).
 
 ## Scope statements I hold to
 
 - Verified computation is not verified science: reproducing a calculation says nothing about whether the model or the hypothesis is right.
-- Research and education use only. Nothing here is validated for GMP, clinical, or manufacturing decisions.
-- Rejected runs, abstentions, and failures are part of the evidence record.
+- Research and education use only. Nothing here is validated for GMP, clinical or manufacturing decisions.
+- Rejected runs, abstentions and failures are part of the evidence record.
