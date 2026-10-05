@@ -26,6 +26,7 @@ VENDORED = {
             "bio-qc/scrna_qc/src/scrna_qc/claims.py",
             "bio-qc/statgen/src/statgen/claims.py",
             "llm-posttraining/evals/claims.py",
+            "mol-ml/comp_tox_pipeline/src/comp_tox/claims.py",
         ],
     ),
     "conformal.py (canonical conformal helpers)": (
