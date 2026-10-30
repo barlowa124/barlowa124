@@ -89,7 +89,7 @@ Repos: [mol-ml](https://github.com/barlowa124/mol-ml) and [lab-informatics](http
 
 | Repository | Description |
 |---|---|
-| [k8s-platform-lab](https://github.com/barlowa124/k8s-platform-lab) | Kubernetes control plane bootstrapped in user space with no Docker, plus a Go client-go controller for a PreviewApp CRD that reconciles a Deployment and Service per app. A one-way GitOps loop applies manifests server-side through RESTMapper and corrects out-of-band drift. Terraform manages the namespace and a PreviewApp instance through the kubernetes provider. The committed run reconciled both CRs to Ready and returned a manually scaled deployment to the manifest count. |
+| [k8s-platform-lab](https://github.com/barlowa124/k8s-platform-lab) | Kubernetes control plane bootstrapped in user space with no Docker, plus a Go client-go controller for a PreviewApp CRD that reconciles a Deployment and Service per app. A one-way GitOps loop applies manifests server-side through RESTMapper and corrects out-of-band drift. Terraform manages the namespace and a PreviewApp instance through the kubernetes provider. The committed run reconciled both CRs to Ready and returned a manually scaled deployment to the manifest count. The controller exports Prometheus metrics and OTel spans. The measured run shows a 198 ms rolling upgrade and a 176 ms pod-kill recovery under kwok. |
 
 ## Upstream contributions
 
