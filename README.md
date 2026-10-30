@@ -76,6 +76,12 @@ Repos: [mol-ml](https://github.com/barlowa124/mol-ml) and [lab-informatics](http
 |---|---|
 | [mmu-verification](https://github.com/barlowa124/mmu-verification) | The DUT is a three-port RISC-V Sv39 MMU with a shared set-associative TLB plus per-port page-table walkers behind a grant-locked arbiter. The UVM environment on Verilator drives constrained-random stimulus. A DPI-C C++ reference feeds the scoreboard. Bound SVA checkers cover the arbiter and TLB. SymbiYosys proves the converted models by k-induction. The committed regression ran 600 simulations with 108000 checks and zero failures. The 12-mutation study killed 8 mutants. Its survivor analysis exposed a page-table stimulus packing bug that had hidden every sub-root walk. |
 
+## Security research
+
+| Repository | Description |
+|---|---|
+| [agent-incident-hunt](https://github.com/barlowa124/agent-incident-hunt) | Passive OSINT pipeline for AI-agent incidents over five public sources. Captures land in a hash-chained evidence store, an indicator file feeds a pivot command, and triage scores a rubric plus a local-LLM rationale pass. Five case files bind claims to captured report text. A localhost decoy service with canary tokens classified 14 of 15 labeled runs across its traffic classes. |
+
 ## Upstream contributions
 
 Merged so far are [nf-core/modules#13091](https://github.com/nf-core/modules/pull/13091), openmm/openmm [#5478](https://github.com/openmm/openmm/pull/5478) and [#5487](https://github.com/openmm/openmm/pull/5487), [zarr-developers/zarr-python#4483](https://github.com/zarr-developers/zarr-python/pull/4483), rdkit/rdkit [#9658](https://github.com/rdkit/rdkit/pull/9658), [#9670](https://github.com/rdkit/rdkit/pull/9670), and [#9674](https://github.com/rdkit/rdkit/pull/9674), [deeptools/pyBigWig#167](https://github.com/deeptools/pyBigWig/pull/167), [sgkit-dev/sgkit#1353](https://github.com/sgkit-dev/sgkit/pull/1353), [hgrecco/pint#2474](https://github.com/hgrecco/pint/pull/2474), [openmc-dev/openmc#4188](https://github.com/openmc-dev/openmc/pull/4188), and ParmEd/ParmEd [#1437](https://github.com/ParmEd/ParmEd/pull/1437), [#1438](https://github.com/ParmEd/ParmEd/pull/1438), and [#1439](https://github.com/ParmEd/ParmEd/pull/1439).
