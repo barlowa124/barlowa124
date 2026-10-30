@@ -81,6 +81,7 @@ Repos: [mol-ml](https://github.com/barlowa124/mol-ml) and [lab-informatics](http
 | Repository | Description |
 |---|---|
 | [agent-incident-hunt](https://github.com/barlowa124/agent-incident-hunt) | Passive OSINT pipeline for AI-agent incidents over five public sources. Captures land in a hash-chained evidence store, an indicator file feeds a pivot command, and triage scores a rubric plus a local-LLM rationale pass. Five case files bind claims to captured report text. A localhost decoy service with canary tokens classified 14 of 15 labeled runs across its traffic classes. |
+| [agent-syscall-trace](https://github.com/barlowa124/agent-syscall-trace) | Rust ptrace supervisor that normalizes the syscall stream across a traced process tree, with a signed manifest driving allow/flag/block decisions at syscall-entry stops. Events land in a hash-chained receipt log with Ed25519 checkpoints, and a verify command catches mid-chain edits and truncation in the committed suite. Network evidence runs in owned user and network namespaces, tapping the veth with AF_PACKET and committing per-flow metadata into a Merkle root checked against the manifest. |
 
 ## Upstream contributions
 
