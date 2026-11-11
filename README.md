@@ -7,6 +7,7 @@ Current work is on New Approach Methodologies and computational toxicology, buil
 
 Projects are grouped into monorepos. Each subdirectory is a self-contained package with its own tests and config. The original standalone repos are archived and point at the new locations, so old links still resolve.
 
+<!-- deslop-disable triplet not-x-but-y -->
 ## Bioinformatics and assay data
 
 Repos: [bio-qc](https://github.com/barlowa124/bio-qc) and [lab-informatics](https://github.com/barlowa124/lab-informatics).
@@ -72,6 +73,12 @@ Repos: [mol-ml](https://github.com/barlowa124/mol-ml) and [lab-informatics](http
 | [dockops](https://github.com/barlowa124/mol-ml/tree/main/dockops) | Docking pipeline ops: DUD-E staging, Vina backend, AFDB-vs-PDB structure QC that correctly argues against docking the AF model for EGFR, and per-run provenance manifests. |
 | [vector-db-mcp](https://github.com/barlowa124/vector-db-mcp) | Local vector DB over MCP (stdio) with flat/IVF/HNSW scans. The committed benchmark shows flat exact search beating the indexes on the benchmarked corpus. Two construction bugs were caught by recall measurement. |
 
+## Finance and data platforms
+
+| Repository | Description |
+|---|---|
+| [sec-edgar-finance-dbt](https://github.com/barlowa124/sec-edgar-finance-dbt) | SEC EDGAR XBRL pipeline for fifteen financial filers. Python ingest writes mapped us-gaap facts to a committed seed. Dbt/DuckDB builds the warehouse under fifty-two checks. FastAPI serves the marts as JSON. `docs/RUNS.md` records the local run. |
+
 ## Hardware verification
 
 | Repository | Description |
@@ -92,11 +99,12 @@ Repos: [mol-ml](https://github.com/barlowa124/mol-ml) and [lab-informatics](http
 |---|---|
 | [k8s-platform-lab](https://github.com/barlowa124/k8s-platform-lab) | Kubernetes control plane bootstrapped in user space with no Docker, plus a Go client-go controller for a PreviewApp CRD that reconciles a Deployment and Service per app. A one-way GitOps loop applies manifests server-side through RESTMapper and corrects out-of-band drift. Terraform manages the namespace and a PreviewApp instance through the kubernetes provider. The committed run reconciled both CRs to Ready and returned a manually scaled deployment to the manifest count. The controller exports Prometheus metrics and OTel spans. The measured run shows a 198 ms rolling upgrade and a 176 ms pod-kill recovery under kwok. |
 
+<!-- deslop-enable -->
 ## Upstream contributions
 
 Merged so far are [nf-core/modules#13091](https://github.com/nf-core/modules/pull/13091), openmm/openmm [#5478](https://github.com/openmm/openmm/pull/5478) and [#5487](https://github.com/openmm/openmm/pull/5487), [zarr-developers/zarr-python#4483](https://github.com/zarr-developers/zarr-python/pull/4483), rdkit/rdkit [#9658](https://github.com/rdkit/rdkit/pull/9658), [#9670](https://github.com/rdkit/rdkit/pull/9670), and [#9674](https://github.com/rdkit/rdkit/pull/9674), [deeptools/pyBigWig#167](https://github.com/deeptools/pyBigWig/pull/167), [sgkit-dev/sgkit#1353](https://github.com/sgkit-dev/sgkit/pull/1353), [hgrecco/pint#2474](https://github.com/hgrecco/pint/pull/2474), [openmc-dev/openmc#4188](https://github.com/openmc-dev/openmc/pull/4188), and ParmEd/ParmEd [#1437](https://github.com/ParmEd/ParmEd/pull/1437), [#1438](https://github.com/ParmEd/ParmEd/pull/1438), and [#1439](https://github.com/ParmEd/ParmEd/pull/1439).
 
-<!-- deslop-disable bold-label-list list-spam ai-vocab era-marker -->
+<!-- deslop-disable bold-label-list list-spam ai-vocab era-marker triplet not-x-but-y prose-colon -->
 - **ParmEd/ParmEd** (3 merged, 1 open): [PR #1437](https://github.com/ParmEd/ParmEd/pull/1437) loads ligand CIF files whose `chem_comp_atom` category has no `atom_site` (merged). [PR #1438](https://github.com/ParmEd/ParmEd/pull/1438) preserves bond order and bond type when adding or multiplying `Structure`s (merged). [PR #1439](https://github.com/ParmEd/ParmEd/pull/1439) stops `ExtraPoint` children serializing onto atoms, which duplicated atoms on round-trip (merged). [PR #1440](https://github.com/ParmEd/ParmEd/pull/1440) raises `ParameterError` when writing a topology with missing term types instead of emitting a file readers reject (open).
 - **rdkit/rdkit** (3 merged, 3 open): [PR #9658](https://github.com/rdkit/rdkit/pull/9658) fixes `GetNeighbors()`/`GetBonds()` indexing in the nanobind layer (merged). [PR #9670](https://github.com/rdkit/rdkit/pull/9670) fixes mol2 formal charge guessing when `UNITY_ATOM_ATTR` holds no charges (merged). [PR #9674](https://github.com/rdkit/rdkit/pull/9674) replaces compiler-name clang detection with `CMAKE_CXX_COMPILER_ID` (merged). [PR #9671](https://github.com/rdkit/rdkit/pull/9671) fixes SMILES written for chiral first atoms with an implicit H (open). [PR #9676](https://github.com/rdkit/rdkit/pull/9676) preserves chirality when merging explicit Hs in `MergeQueryHs` (open). [PR #9677](https://github.com/rdkit/rdkit/pull/9677) preserves ring type and ring families across `renumberAtoms`, including dative and hydrogen bonds (open).
 - **openmm/openmm** (2 merged, 1 open): [PR #5478](https://github.com/openmm/openmm/pull/5478) fixes `Quantity * Quantity` and `/ Quantity` on compound ratio units (merged). [PR #5487](https://github.com/openmm/openmm/pull/5487) normalizes periodic box vectors passed as a nested array of `Quantity` objects (merged). [PR #5486](https://github.com/openmm/openmm/pull/5486) initializes `useOptimizedPme` so pre-evaluation PME queries do not throw `bad_cast` (open).
@@ -126,9 +134,11 @@ Merged so far are [nf-core/modules#13091](https://github.com/nf-core/modules/pul
 - **chaidiscovery/chai-lab** (open): [PR #431](https://github.com/chaidiscovery/chai-lab/pull/431) reports pTM as the aggregate score for single-chain inputs, where the ipTM-based headline understated confidence. [PR #432](https://github.com/chaidiscovery/chai-lab/pull/432) persists the PAE/PDE/pLDDT matrices in Python-mode `scores.npz`.
 - **UKGovernmentBEIS/inspect_evals** (open): [issue #2582](https://github.com/UKGovernmentBEIS/inspect_evals/issues/2582) submits [inspect-case-bench](https://github.com/barlowa124/inspect-case-bench), a port of CASE-Bench (ICML 2025, context-aware safety judgment vs human majority labels, 900 samples) with two-model `.eval` run logs.
 - **nf-core/modules**: [PR #13091](https://github.com/nf-core/modules/pull/13091) bumps fastqc to 0.13.0 (merged). [PR #13079](https://github.com/nf-core/modules/pull/13079) supports multiple input files in `jellyfish/count` (open). Drafts (CI gated on org membership): [PR #13099](https://github.com/nf-core/modules/pull/13099) bumps kraken2 to 2.17.2. [PR #13100](https://github.com/nf-core/modules/pull/13100) bumps shovill to 1.4.2.
+- **TauricResearch/TradingAgents** (open): [PR #1688](https://github.com/TauricResearch/TradingAgents/pull/1688) reads `RevenuesNetOfInterestExpense` first in the SEC EDGAR income statement so bank filers stop showing missing or fee-only revenue.
 - [TDC fork](https://github.com/barlowa124/TDC): tested fix for silent dataset-name substitution plus an AnnData getter/split API. [ProteinMPNN](https://github.com/barlowa124/ProteinMPNN): effective-seed visibility fix filed as [issue #154](https://github.com/dauparas/ProteinMPNN/issues/154).
 <!-- deslop-enable -->
 
+<!-- deslop-disable triplet not-x-but-y prose-colon -->
 ## How the pieces connect
 
 The repos are standalone, but a few components are shared on purpose so results cross-check each other.
@@ -137,7 +147,7 @@ ESM-2 is the protein encoder in three places with mixed outcomes. It drives resc
 
 AnnData and scanpy are used across the four QC packages (`scrna-qc`, `organoid-qc`, `spatial-qc`, `cytof-qc`). The upstream scanpy PRs came from plotting bugs hit in that workflow.
 
-The claims verifier is ported from oncology-coscientist's draft verifier and vendored into bio-qc's scrna-qc and statgen as well as comp-tox-pipeline and llm-posttraining's eval report. `python3 tools/check_vendored_parity.py` in this repo checks the four claims copies alongside the shared conformal, ESM-2 cache and secret-scanner files against pinned digests in one run. The bioprocess runtime's replay certificates and protein-design-ops' pinned-seed provenance apply the same discipline, as does comp-tox's applicability-domain conditioning.
+The claims verifier is ported from oncology-coscientist's draft verifier and vendored into bio-qc's scrna-qc and statgen as well as comp-tox-pipeline and llm-posttraining's eval report. `python3 tools/check_vendored_parity.py` in this repo checks the four claims copies alongside the shared conformal, ESM-2 cache and secret-scanner files against pinned digests in one run. The bioprocess runtime's replay certificates and protein-design-ops' pinned-seed provenance apply the same discipline, as does comp-tox's applicability-domain conditioning. <!-- deslop-disable-line -->
 
 A common provenance schema (`docs/PROVENANCE.md`) is adopted by oncology-coscientist, bioprocess-decision-runtime, dockops, labStackDev and comp-tox-pipeline. A canonical conformal helper with parity tests runs in scrna-qc, comp-tox-pipeline, protein-stability-uncertainty and cultivated-meat-multiomic. One content-addressed ESM-2 cache is vendored into protein-design-ops, dti-fusion and active-learning-loop.<!-- deslop-disable-line ai-vocab -->
 
@@ -145,6 +155,6 @@ Cross-repo flows link the services directly. `lab-instrument-gateway` captures f
 
 ## Scope
 
-- Verified computation is not verified science: reproducing a calculation says nothing about whether the model or the hypothesis is right.
+- Verified computation is not verified science. Reproducing a calculation says nothing about whether the model or the hypothesis is right. <!-- deslop-disable-line -->
 - Research and education use only. Nothing here is validated for GMP, clinical or manufacturing decisions.
-- Rejected runs, abstentions and failures are part of the evidence record.
+- Rejected runs, abstentions and failures are part of the evidence record. <!-- deslop-disable-line -->
