@@ -99,6 +99,20 @@ Repos: [mol-ml](https://github.com/barlowa124/mol-ml) and [lab-informatics](http
 |---|---|
 | [k8s-platform-lab](https://github.com/barlowa124/k8s-platform-lab) | Kubernetes control plane bootstrapped in user space with no Docker, plus a Go client-go controller for a PreviewApp CRD that reconciles a Deployment and Service per app. A one-way GitOps loop applies manifests server-side through RESTMapper and corrects out-of-band drift. Terraform manages the namespace and a PreviewApp instance through the kubernetes provider. The committed run reconciled both CRs to Ready and returned a manually scaled deployment to the manifest count. The controller exports Prometheus metrics and OTel spans. The measured run shows a 198 ms rolling upgrade and a 176 ms pod-kill recovery under kwok. |
 
+## Application engineering
+
+Standalone repos, one per language or platform stack.
+
+| Repository | Description |
+|---|---|
+| [kafka-flink-telemetry](https://github.com/barlowa124/kafka-flink-telemetry) | Java 21 streaming demo. A telemetry producer and aggregate consumer run over Kafka while a Flink 2.1.3 job applies ten-second tumbling event-time windows keyed by probe. Outputs carry summary statistics and per-metric threshold status. Six unit tests cover serde and windowing. A committed end-to-end run processed 1,635 readings from 15 probes into 180 aggregate records. |
+| [assay-plate-map](https://github.com/barlowa124/assay-plate-map) | Kotlin/JVM CLI for assay plate maps. It parses CSV plate layouts and validates well roles before rendering plate grids. Twelve tests cover parsing edge cases and role rules. |
+| [swift-dose-response](https://github.com/barlowa124/swift-dose-response) | Swift package fitting four-parameter logistic dose-response curves by Nelder-Mead least squares. Fitted parameters include EC50 and the hill slope, with fit quality reported as RMSE and R-squared. Eleven XCTest cases pass on Linux. A committed run on a generated curve recovered EC50 0.510 against a true 0.5 with R-squared 0.999. |
+| [sample-inventory-api](https://github.com/barlowa124/sample-inventory-api) | ASP.NET Core 8 minimal API for lab sample inventory over SQLite via Dapper. Routes cover creation and filtered listing as well as status updates and fetch-by-id. Bad input returns 400 and missing records return 404, while duplicate ids return 409. Seven xUnit integration tests run the real app in-process through WebApplicationFactory against fresh SQLite files. |
+| [adk-sample-agent](https://github.com/barlowa124/adk-sample-agent) | Google ADK for Java agent demo. An LlmAgent calls two inventory tools through the real Runner loop. The model backend is pluggable between Vertex AI Gemini with ADC and a deterministic BaseLlm that scripts the same loop with no credentials. Seven tests drive the Runner and assert the tool-call sequence. |
+| [servicenow-workflow-demo](https://github.com/barlowa124/servicenow-workflow-demo) | ServiceNow-concepts implementation in Python. It models the incident lifecycle with guarded transitions. Per-priority SLA timers cover response and resolution & breaches escalate once. Nine pytest cases cover transitions, guards, and SLA breach handling. A committed demo run shows a P2 incident breaching response SLA and escalating. |
+| [sample-inventory-sam](https://github.com/barlowa124/sample-inventory-sam) | Serverless variant of the inventory API on AWS SAM. An API Gateway HTTP API fronts a Python Lambda over DynamoDB. Ten pytest cases invoke the handler with payload-v2 event dicts. The stack was verified end to end with `sam local` against LocalStack DynamoDB, and a captured run is committed. |
+
 <!-- deslop-enable -->
 ## Upstream contributions
 
