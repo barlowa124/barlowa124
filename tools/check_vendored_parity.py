@@ -46,6 +46,45 @@ VENDORED = {
             "protein-ml/protein_design_ops/src/design_ops/esm_cache.py",
         ],
     ),
+    "check_secrets.py (pre-commit secret scanner)": (
+        "10c30c91008a612642716103df54daba75aa65714cdc815b5db8649a7c8be81c",
+        [
+            "bio-qc/scripts/check_secrets.py",
+            "bioprocess-decision-runtime/scripts/check_secrets.py",
+            "inspect-case-bench/scripts/check_secrets.py",
+            "lab-informatics/scripts/check_secrets.py",
+            "llm-posttraining/scripts/check_secrets.py",
+            "mol-ml/scripts/check_secrets.py",
+            "protein-ml/scripts/check_secrets.py",
+            "qms-ai-system-resume/scripts/check_secrets.py",
+            "trust-tools/scripts/check_secrets.py",
+        ],
+    ),
+    "provenance.py (shared provenance/v1 manifest helper)": (
+        "f148dc945d70915c7a1ea56dba4920900ad7544daa85cac8e60e8dee52fcd14b",
+        [
+            "lab-informatics/labStackDev/lims/provenance.py",
+            "mol-ml/comp_tox_pipeline/src/comp_tox/provenance.py",
+        ],
+    ),
+    "chainfmt.py (canonical JSON + SHA-256 chain envelope)": (
+        "ff832a97b2240e5fa7430cbb0403d03b1fa418c15a18164788fd8130bbce4ee4",
+        [
+            "trust-tools/agent_monitor/src/agentmon/chainfmt.py",
+            "trust-tools/eval_harness/src/evalh/chainfmt.py",
+        ],
+    ),
+    "PROVENANCE.md (shared provenance specification)": (
+        "6d7529c76c25b9302074e773fa82295b1fc707e8269465408e259d5feb5e2e10",
+        [
+            "bioprocess-decision-runtime/docs/PROVENANCE.md",
+            "lab-informatics/labStackDev/docs/PROVENANCE.md",
+            "mol-ml/comp_tox_pipeline/docs/PROVENANCE.md",
+            "mol-ml/dockops/docs/PROVENANCE.md",
+            "oncology-coscientist/docs/PROVENANCE.md",
+            "trust-tools/oncology_coscientist/docs/PROVENANCE.md",
+        ],
+    ),
 }
 
 
